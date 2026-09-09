@@ -28,9 +28,8 @@
       <div class="nav-extra">
         <nav class="nav-menu" aria-label="주요 내비게이션">
           <a href="#about" class="nav-link" data-section="about">About</a>
-          <a href="#scope" class="nav-link" data-section="scope">Scope</a>
-          <a href="#work" class="nav-link" data-section="work">Work</a>
           <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+          <a href="#work" class="nav-link" data-section="work">Work</a>
           <a href="#contact" class="nav-link" data-section="contact">Contact</a>
         </nav>
         <button type="button" id="motion-toggle-btn" class="motion-btn" aria-pressed="false" aria-label="화면 모션 애니메이션 줄이기 토글">
@@ -121,11 +120,60 @@
       </div>
     </section>
 
-    <!-- 02 Work Section (S-A-R Projects with Original PPT Layout) -->
+    <!-- 02 Skills Section (기존 원본 순서로 복원) -->
+    <section id="skills" class="section">
+      <div class="container section-grid">
+        <div class="grid-left">
+          <span class="section-tag">02 — Skills</span>
+        </div>
+        <div class="grid-right">
+          <h2 class="section-heading">기술 스택</h2>
+          <div class="skills-box-grid">
+            <!-- Security & Analysis -->
+            <div class="skill-category-card">
+              <h3 class="category-title">Security &amp; Analysis</h3>
+              <ul class="skill-list">
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Snort &amp; Suricata 룰 작성</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>OSSEC HIDS 호스트 침입 탐지</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Cisco ASAv 방화벽 &amp; ACL 설정</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>네트워크 패킷 분석 (Wireshark)</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>OWASP Top 10 취약점 분석</li>
+              </ul>
+            </div>
+
+            <!-- Development & Scripting -->
+            <div class="skill-category-card">
+              <h3 class="category-title">Development &amp; Scripting</h3>
+              <ul class="skill-list">
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Python 보안 자동화 스크립트</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>C 프로그래밍 기초</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>HTML5 / CSS3 / JavaScript</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Bash 쉘 스크립팅</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>SQL 쿼리 &amp; 파라미터화 검증</li>
+              </ul>
+            </div>
+
+            <!-- System & Infra -->
+            <div class="skill-category-card">
+              <h3 class="category-title">System &amp; Infra</h3>
+              <ul class="skill-list">
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>GNS3 가상 네트워크 에뮬레이션</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Linux (Ubuntu / Rocky Linux)</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Zabbix 인프라 모니터링</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>pfSense OpenVPN 원격 보안</li>
+                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Git 형상 관리 &amp; 감사</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Work Section (S-A-R Projects with Original PPT Layout) -->
     <section id="work" class="section">
       <div class="container section-grid">
         <div class="grid-left">
-          <span class="section-tag">02 — Work</span>
+          <span class="section-tag">03 — Work</span>
         </div>
         <div class="grid-right">
           <h2 class="section-heading">주요 프로젝트</h2>
@@ -230,52 +278,6 @@
       </div>
     </section>
 
-    <!-- 03 Skills Section -->
-    <section id="skills" class="section">
-      <div class="container section-grid">
-        <div class="grid-left">
-          <span class="section-tag">03 — Skills</span>
-        </div>
-        <div class="grid-right">
-          <h2 class="section-heading">기술 스택</h2>
-          <div class="skills-box-grid">
-            <div class="skill-category-card">
-              <h3 class="category-title">Security &amp; Analysis</h3>
-              <ul class="skill-list">
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Snort &amp; Suricata 룰 작성</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>OSSEC HIDS 호스트 침입 탐지</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Cisco ASAv 방화벽 &amp; ACL 설정</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>네트워크 패킷 분석 (Wireshark)</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>OWASP Top 10 취약점 분석</li>
-              </ul>
-            </div>
-
-            <div class="skill-category-card">
-              <h3 class="category-title">Development &amp; Scripting</h3>
-              <ul class="skill-list">
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Python 보안 자동화 스크립트</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>C 프로그래밍 기초</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>HTML5 / CSS3 / JavaScript</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Bash 쉘 스크립팅</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>SQL 쿼리 &amp; 파라미터화 검증</li>
-              </ul>
-            </div>
-
-            <div class="skill-category-card">
-              <h3 class="category-title">System &amp; Infra</h3>
-              <ul class="skill-list">
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>GNS3 가상 네트워크 에뮬레이션</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Linux (Ubuntu / Rocky Linux)</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Zabbix 인프라 모니터링</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>pfSense OpenVPN 원격 보안</li>
-                <li class="skill-item"><span class="bullet" aria-hidden="true"></span>Git 형상 관리 &amp; 감사</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 04 Contact Section -->
     <section id="contact" class="section">
       <div class="container section-grid">
@@ -297,6 +299,9 @@
             <a href="https://github.com/wonq-Port/wonq-Port.github.io" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
             <span class="social-link">대구광역시 / 원격 근무 가능</span>
             <span class="social-link">보안관제 / 정보보호 직무 지원</span>
+            <button type="button" class="social-link open-evidence-btn" data-evidence="scope" aria-haspopup="dialog" style="text-decoration: underline;">
+              [공개 범위 점검표 확인]
+            </button>
           </div>
         </div>
       </div>
