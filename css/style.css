@@ -418,111 +418,6 @@ button {
   transform: translateX(5px);
 }
 
-/* Scope Section */
-.scope-grid-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  border: 1px solid var(--color-border-darker);
-}
-
-@media (min-width: 768px) {
-  .scope-grid-wrapper {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.scope-column {
-  padding: 2rem;
-  border-bottom: 1px solid var(--color-border-darker);
-}
-
-@media (min-width: 768px) {
-  .scope-column {
-    border-bottom: none;
-    border-right: 1px solid var(--color-border-darker);
-  }
-  .scope-column:last-child {
-    border-right: none;
-  }
-}
-
-.scope-column-title {
-  font-family: var(--font-inter);
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: var(--color-text-subtle);
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.scope-badge {
-  font-size: 10px;
-  padding: 2px 6px;
-  border-radius: 2px;
-  font-weight: 700;
-}
-
-.scope-badge.badge-public {
-  background-color: #f0fdf4;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
-}
-
-.scope-badge.badge-private {
-  background-color: #fef2f2;
-  color: var(--color-accent-red);
-  border: 1px solid #fecaca;
-}
-
-.scope-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.scope-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.scope-item-head {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-text-main);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.bullet-red {
-  width: 4px;
-  height: 4px;
-  border-radius: 9999px;
-  background-color: var(--color-accent-red);
-  flex-shrink: 0;
-}
-
-.bullet-green {
-  width: 4px;
-  height: 4px;
-  border-radius: 9999px;
-  background-color: #15803d;
-  flex-shrink: 0;
-}
-
-.scope-item-body {
-  font-size: 13px;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  padding-left: 0.75rem;
-}
-
 /* About Section */
 .about-content {
   display: flex;
@@ -961,4 +856,237 @@ button {
   font-size: 12px;
   line-height: 1.5;
   overflow-x: auto;
+}
+
+/* ==========================================================================
+   Easter Egg Game Styles (Cyber Defense Tic-Tac-Toe)
+   ========================================================================== */
+
+.easter-egg-btn {
+  font-family: var(--font-inter);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  border: 1px dashed var(--color-border-darker);
+  padding: 3px 8px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  background: transparent;
+  cursor: pointer;
+}
+
+.easter-egg-btn:hover {
+  color: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+  background-color: rgba(185, 28, 28, 0.04);
+}
+
+.game-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.game-modal.open {
+  display: flex;
+}
+
+.game-modal-content {
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  border-radius: 4px;
+  max-width: 440px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--color-text-main);
+}
+
+.game-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.game-header-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.game-blink-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background-color: var(--color-accent-red);
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.game-tag-text {
+  font-family: var(--font-inter);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--color-text-subtle);
+}
+
+.game-title {
+  font-family: var(--font-barlow);
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-main);
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.game-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.game-scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-border-darker);
+  border-radius: 2px;
+  background: var(--color-hover-bg);
+  padding: 0.5rem;
+}
+
+.score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.score-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.score-num {
+  font-family: var(--font-barlow);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text-main);
+}
+
+.score-player .score-num { color: #16a34a; }
+.score-ai .score-num { color: var(--color-accent-red); }
+
+.game-status {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.4rem;
+  background: #f4f4f5;
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+  color: var(--color-text-main);
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 1.5rem;
+  background: var(--color-border-darker);
+  padding: 6px;
+  border-radius: 3px;
+}
+
+.game-cell {
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+  border: none;
+  font-family: var(--font-barlow);
+  font-size: 2.2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--color-text-main);
+  border-radius: 2px;
+}
+
+.game-cell:hover:not(:disabled) {
+  background: #f4f4f5;
+  color: var(--color-accent-red);
+}
+
+.game-cell.cell-o {
+  color: #16a34a;
+}
+
+.game-cell.cell-x {
+  color: var(--color-accent-red);
+}
+
+.game-cell.winning-cell {
+  background: #fef08a;
+}
+
+.game-cell:disabled {
+  cursor: default;
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.game-btn {
+  font-family: var(--font-inter);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--color-text-main);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.game-btn-reset {
+  background: var(--color-text-main);
+  color: #ffffff;
+}
+
+.game-btn-reset:hover {
+  background: var(--color-accent-red);
+  border-color: var(--color-accent-red);
 }
