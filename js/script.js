@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const logoBtn = document.getElementById('logo-btn');
   const motionToggleBtn = document.getElementById('motion-toggle-btn');
-  const sections = ['hero', 'about', 'scope', 'work', 'skills', 'contact']
+  const sections = ['hero', 'about', 'skills', 'work', 'contact']
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -164,6 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "OSSEC(HIDS) 및 Zabbix 기반 호스트 관제 체계 구축 명세서",
       desc: "Ubuntu 중앙 관제 서버에 OSSEC HIDS 서버를 구축하고 Windows 및 Rocky Linux 노드에 Agent를 연동하여 파일 무결성 및 시스템 가용성을 실시간 모니터링한 구성 문서입니다.",
       code: "[OSSEC HIDS 에이전트 연동 상태]\n- Server: Ubuntu 22.04 LTS (IP: 192.168.10.50)\n- Agent 001: Windows 10 (IP: 192.168.10.101) - Status: Active\n- Agent 002: Rocky Linux 9 (IP: 192.168.10.102) - Status: Active\n\n[Syscheck 무결성 감시]\n- 감시 대상: /etc/passwd, /etc/shadow, C:\\Windows\\System32\\drivers\\etc\\hosts\n- Zabbix 연동: CPU 점유율 85% 초과 또는 Agent Unreachable 시 즉시 대시보드 경보"
+    },
+    scope: {
+      title: "공개 범위 및 보안 점검표 (Disclosure Scope Checklist)",
+      desc: "정보보안 전문가로서 개인정보보호법 준수 및 자산 침해사고 예방을 위해 공개/비공개 범위를 명확히 규정합니다.",
+      code: "[대상 및 목적]\n- 대상: 정보보안 직무 채용 담당자 및 IT 실무진\n- 목적: 정보보안 전문가를 꿈꾸는 이혜원의 보안 분석 역량과 실무 문제 해결 경험 전달\n\n[공개 정보 (4개)]\n1. 이름 및 전문 지향점: 이혜원 / 주니어 정보보안 전문가\n2. 보유 기술 스택: Snort/Suricata, GNS3/ASAv, AI 보안관제, Linux, Python\n3. 공식 채용 소통 이메일: wonq1029@gmail.com\n4. 실무 산출물: 비식별화된 S-A-R 침입 탐지 룰셋 및 네트워크 아키텍처 보고서\n\n[비공개 정보 (3개)]\n1. 주민등록번호, 생년월일 등 고유식별정보 (사유: 개인정보보호법 준수 및 도용 방지)\n2. 개인 휴대전화번호 및 상세 거주지 주소 (사유: 사생활 보호 및 스팸 방지)\n3. 시스템 계정 비밀번호, API Secret 토큰 원문 (사유: 침해사고 예방 및 보안 윤리)"
     }
   };
 
