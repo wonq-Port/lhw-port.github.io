@@ -1,1 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이혜원 | 정보보안 전문가 포트폴리오</title>
 
+  <!-- Google Fonts: Barlow Condensed & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#overview" class="nav-logo" id="logo-btn" aria-label="이혜원 포트폴리오 최상단으로 이동">
+        <span>이혜원</span>
+        <span class="nav-logo-badge">SECURITY</span>
+      </a>
+
+      <div class="nav-right-cluster">
+        <nav class="nav-menu" aria-label="주요 내비게이션">
+          <a href="#overview" class="nav-link">개요</a>
+          <a href="#scope" class="nav-link">공개범위</a>
+          <a href="#about" class="nav-link">소개</a>
+          <a href="#activities" class="nav-link">핵심활동</a>
+          <a href="#skills" class="nav-link">기술스택</a>
+          <a href="#contact" class="nav-link">연락처</a>
+        </nav>
+        <button type="button" id="motion-toggle-btn" class="motion-toggle-btn" aria-pressed="false" aria-label="화면 모션 애니메이션 켜기 및 끄기 토글">
+          <span aria-hidden="true">⚡</span> 모션 줄이기: OFF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 00 Overview: 첫 화면(1366x768 & 1920x1080) 소개·활동·근거 동시 노출 -->
+    <section id="overview" class="hero-dashboard-section">
+      <div class="container">
+        <div class="hero-header-row">
+          <p class="hero-tagline">Cybersecurity &amp; Network Defense</p>
+          <h1 class="hero-main-title">이혜원 | 정보보안 전문가 포트폴리오</h1>
+          <p class="hero-target-statement">
+            <strong>[대상 및 목적]</strong> 이 페이지는 정보보안 직무 채용 담당자와 IT 팀에게 정보보안 전문가를 꿈꾸는 이혜원의 보안 분석 역량과 실무 문제 해결 경험을 전달하기 위한 공개 포트폴리오입니다.
+          </p>
+        </div>
+
+        <div class="firstview-grid">
+          <!-- 컬럼 1: 소개 -->
+          <div class="firstview-card">
+            <div>
+              <div class="firstview-card-header">
+                <span class="firstview-label">01 — 소개 (ABOUT)</span>
+                <span class="firstview-badge">프로필</span>
+              </div>
+              <h2 class="firstview-title" style="font-size: 1.25rem;">보안 인재 이혜원</h2>
+              <p class="firstview-desc">
+                컴퓨터소프트웨어 전공 지식과 AI 보안관제 실무를 바탕으로 네트워크 및 시스템의 취약점을 선제적으로 탐지하고 방어 체계를 구축하는 정보보안 전문가입니다.
+              </p>
+              <ul class="firstview-list">
+                <li class="firstview-list-item">
+                  <span class="firstview-bullet" aria-hidden="true">▪</span>
+                  <span><strong>전공:</strong> 대구대학교 컴퓨터소프트웨어전공</span>
+                </li>
+                <li class="firstview-list-item">
+                  <span class="firstview-bullet" aria-hidden="true">▪</span>
+                  <span><strong>전문교육:</strong> AI 보안관제 전문인력 양성과정</span>
+                </li>
+              </ul>
+            </div>
+            <div class="firstview-card-footer">
+              <a href="#about" class="firstview-action-link">상세 프로필 보기 →</a>
+            </div>
+          </div>
+
+          <!-- 컬럼 2: 활동 -->
+          <div class="firstview-card">
+            <div>
+              <div class="firstview-card-header">
+                <span class="firstview-label">02 — 활동 (ACTIVITIES)</span>
+                <span class="firstview-badge">S-A-R 실무</span>
+              </div>
+              <h2 class="firstview-title" style="font-size: 1.25rem;">3대 핵심 보안 프로젝트</h2>
+              <ul class="firstview-list">
+                <li class="firstview-list-item">
+                  <span class="firstview-bullet" aria-hidden="true">1.</span>
+                  <span><strong>침입 탐지:</strong> Snort &amp; Suricata 기반 SYN 스캔/DDoS 공격 탐지 룰셋</span>
+                </li>
+                <li class="firstview-list-item">
+                  <span class="firstview-bullet" aria-hidden="true">2.</span>
+                  <span><strong>네트워크 보안:</strong> GNS3 가상 토폴로지 및 ASAv 방화벽 영역별 망 분리</span>
+                </li>
+                <li class="firstview-list-item">
+                  <span class="firstview-bullet" aria-hidden="true">3.</span>
+                  <span><strong>호스트 관제:</strong> OSSEC HIDS 및 Zabbix 대시보드 기반 무결성 모니터링</span>
+                </li>
+              </ul>
+            </div>
+            <div class="firstview-card-footer">
+              <a href="#activities" class="firstview-action-link">S-A-R 활동 상세 펼치기 →</a>
+            </div>
+          </div>
+
+          <!-- 컬럼 3: 근거 -->
+          <div class="firstview-card">
+            <div>
+              <div class="firstview-card-header">
+                <span class="firstview-label">03 — 근거 (EVIDENCE)</span>
+                <span class="firstview-badge">검증 산출물</span>
+              </div>
+              <h2 class="firstview-title" style="font-size: 1.25rem;">공개 검증 자료</h2>
+              <p class="firstview-desc">
+                모든 보안 활동은 비인가 개인정보를 철저히 제거한 실증 룰셋 및 아키텍처 결과물로 입증됩니다.
+              </p>
+              <ul class="firstview-list">
+                <li class="firstview-list-item">
+                  <span class="firstview-bullet" aria-hidden="true">✔</span>
+                  <span>Snort &amp; Suricata 탐지 룰셋 명세서</span>
+                </li>
+                <li class="firstview-list-item">
+                  <span class="firstview-bullet" aria-hidden="true">✔</span>
+                  <span>GNS3 방화벽 토폴로지 구성 보고서</span>
+                </li>
+                <li class="firstview-list-item">
+                  <span class="firstview-bullet" aria-hidden="true">✔</span>
+                  <span>HIDS 엔드포인트 관제 감사 기록서</span>
+                </li>
+              </ul>
+            </div>
+            <div class="firstview-card-footer">
+              <button type="button" class="firstview-action-link open-evidence-modal-btn" data-evidence-key="evidence1" aria-haspopup="dialog">
+                검증 보고서 모달 열기 ↗
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 Scope Section -->
+    <section id="scope" class="section">
+      <div class="container section-grid">
+        <div class="grid-left">
+          <span class="section-tag">01 — Scope</span>
+        </div>
+        <div class="grid-right">
+          <h2 class="section-heading">공개 범위 및 점검표</h2>
+          <div class="red-line"></div>
+          <p class="body-text">
+            정보보안 전문가로서 준수해야 할 데이터 보안 및 개인정보보호 원칙에 따라, 본 포트폴리오에서 외부에 공개하는 항목과 엄격히 비공개하는 항목을 명확히 분류하여 관리합니다.
+          </p>
+
+          <div class="scope-table-wrapper">
+            <div class="scope-box public-box">
+              <div class="scope-box-header">
+                <h3 class="scope-title">공개 정보 (3개 이상)</h3>
+                <span class="scope-status-tag tag-public">공개 대상</span>
+              </div>
+              <ul class="scope-item-list">
+                <li class="scope-item">
+                  <span class="scope-item-name"><span aria-hidden="true">🟢</span> 1. 이름 및 전문 지향점</span>
+                  <span class="scope-item-desc">이혜원 / 정보보안 전문가 지망 및 시스템·네트워크 침입 분석 역량 명시</span>
+                </li>
+                <li class="scope-item">
+                  <span class="scope-item-name"><span aria-hidden="true">🟢</span> 2. 보유 기술 스택 및 수료 내역</span>
+                  <span class="scope-item-desc">Snort/Suricata 룰 작성, GNS3/ASAv 방화벽 구축, AI 보안관제 교육 수료, Linux/Python 활용 역량</span>
+                </li>
+                <li class="scope-item">
+                  <span class="scope-item-name"><span aria-hidden="true">🟢</span> 3. 공식 채용 소통 이메일</span>
+                  <span class="scope-item-desc">공식 대외 연락 채널 (wonq1029@gmail.com)</span>
+                </li>
+                <li class="scope-item">
+                  <span class="scope-item-name"><span aria-hidden="true">🟢</span> 4. 비식별화된 프로젝트 산출물 및 검증 근거</span>
+                  <span class="scope-item-desc">S-A-R 구조로 작성된 보안 분석 보고서 요약 및 이상 징후 탐지 룰셋</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="scope-box private-box">
+              <div class="scope-box-header">
+                <h3 class="scope-title">비공개 정보 (3개 이상)</h3>
+                <span class="scope-status-tag tag-private">철저 보호</span>
+              </div>
+              <ul class="scope-item-list">
+                <li class="scope-item">
+                  <span class="scope-item-name"><span aria-hidden="true">🔴</span> 1. 주민등록번호 및 생년월일 등 고유식별정보</span>
+                  <span class="scope-item-desc">개인정보보호법 준수 및 신원 도용·사칭 원천 차단을 위해 일체 비공개</span>
+                </li>
+                <li class="scope-item">
+                  <span class="scope-item-name"><span aria-hidden="true">🔴</span> 2. 개인 휴대전화번호 및 상세 주소지</span>
+                  <span class="scope-item-desc">사생활 침해 방지 및 스팸 피해 예방을 위해 웹 공개 배제 (공식 이메일로만 소통)</span>
+                </li>
+                <li class="scope-item">
+                  <span class="scope-item-name"><span aria-hidden="true">🔴</span> 3. 시스템 계정 비밀번호, API 토큰, 서버 접속 키 원문</span>
+                  <span class="scope-item-desc">침해사고 예방 및 보안 윤리 준수를 위해 모든 코드와 저장소에서 0건 유지</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 About Section -->
+    <section id="about" class="section">
+      <div class="container section-grid">
+        <div class="grid-left">
+          <span class="section-tag">02 — About</span>
+        </div>
+        <div class="grid-right">
+          <h2 class="section-heading">저를 소개합니다</h2>
+          <div class="red-line"></div>
+
+          <div class="about-content-wrapper">
+            <div class="about-bio-grid">
+              <p class="body-text">
+                안녕하세요. <strong>이혜원</strong>입니다. 소프트웨어 및 네트워크 인프라의 잠재적 위험을 선제적으로 찾아내고 견고한 보안 방어선을 구축하는 <strong>정보보안 전문가</strong>를 목표로 하고 있습니다.
+                컴퓨터소프트웨어 전공 과정을 통해 개발 원리와 시스템 구조를 체계적으로 학습하였으며, 이를 기반으로 네트워크 취약점을 분석하고 방어 체계를 수립하는 보안 역량을 길러왔습니다.
+              </p>
+              <p class="body-text">
+                이론에 머무르지 않고 <strong>AI 보안관제 전문인력 양성과정</strong>을 통해 실제 공격 시나리오와 대용량 네트워크 트래픽 로그를 분석하며 Snort/Suricata 룰을 설계하는 실무 감각을 익혔습니다.
+                GNS3를 활용한 방화벽 망 분리 및 OSSEC HIDS 기반 호스트 관제 등 실습 중심의 문제 해결을 거듭하며 신뢰할 수 있는 보안 인재로 도약하고 있습니다.
+              </p>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value">6+</div>
+                <div class="stat-label">보안 실무 프로젝트</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">20+</div>
+                <div class="stat-label">침입 탐지 룰셋 설계</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">모의 스캐닝 탐지율</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">0건</div>
+                <div class="stat-label">민감정보 누출</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Activities Section (S-A-R with Interaction) -->
+    <section id="activities" class="section">
+      <div class="container section-grid">
+        <div class="grid-left">
+          <span class="section-tag">03 — Activities</span>
+        </div>
+        <div class="grid-right">
+          <h2 class="section-heading">핵심 역량 및 실무 활동 (S-A-R)</h2>
+          <div class="red-line"></div>
+          <p class="body-text" style="margin-bottom: 2rem;">
+            상황(Situation), 행동(Action), 결과(Result) 체계로 정리한 3가지 핵심 보안 실무 활동입니다. 각 카드의 버튼을 클릭하거나 키보드(Tab 후 Enter/Space)로 눌러 세부 조치 과정과 검증 근거를 확인할 수 있습니다.
+          </p>
+
+          <div class="sar-container">
+            <!-- S-A-R 1 -->
+            <article class="sar-card" id="card-sar-1">
+              <div class="sar-card-header">
+                <div class="sar-num-tag">
+                  <span class="sar-num">01</span>
+                  <h3 class="sar-title">Snort &amp; Suricata 기반 침입 탐지(IDS) 룰셋 구축</h3>
+                </div>
+                <span class="sar-category-badge">네트워크 IDS &amp; 패킷 분석</span>
+              </div>
+
+              <div class="sar-grid">
+                <div class="sar-col situation">
+                  <h4 class="sar-col-title">상황 (Situation)</h4>
+                  <p class="sar-col-text">
+                    네트워크 모의 침투 실습 환경(Kali Linux)에서 발생하는 SYN Flag Scanning, Command 주입 및 랜덤 소스 기반 DDoS 공격 트래픽의 실시간 탐지 부재 문제 식별.
+                  </p>
+                </div>
+                <div class="sar-col action">
+                  <h4 class="sar-col-title">행동 (Action)</h4>
+                  <p class="sar-col-text">
+                    Ubuntu 및 Rocky Linux 상에 Snort와 Suricata 엔진을 각각 구축하고, 포트 스캔·SYN 플래그·명령어 패턴을 정밀 식별하는 5종 이상의 맞춤형 침입 탐지 규칙을 작성함.
+                  </p>
+                </div>
+                <div class="sar-col result">
+                  <h4 class="sar-col-title">결과 (Result)</h4>
+                  <p class="sar-col-text">
+                    모의 공격 트래픽 유입 시 실시간 경보 발생률 100%를 확인하고, 탐지 로그 오탐을 최소화한 규칙 최적화 및 침입 탐지 룰셋 검증 보고서를 도출함.
+                  </p>
+                </div>
+              </div>
+
+              <div class="sar-interactive-area">
+                <button type="button" class="sar-toggle-btn" aria-expanded="false" aria-controls="sar-detail-1">
+                  <span class="sar-toggle-text">세부 분석 과정 펼치기</span>
+                  <span class="sar-toggle-icon" aria-hidden="true">▼</span>
+                </button>
+
+                <div id="sar-detail-1" class="sar-detail-content">
+                  <p class="sar-detail-subheading">[기술적 세부 점검 및 룰셋 명세]</p>
+                  <p>1. Snort Rule 설계: Kali 발 SYN Flag Scanning 탐지 규칙 작성 (`flags:S; threshold:type threshold, track by_src, count 5, seconds 3;`).</p>
+                  <p>2. Suricata Rule 교차 검증: 동일 공격 트래픽을 Suricata 엔진에 적용하여 다중 엔진 환경에서의 탐지 일관성 및 성능 차이 비교 분석.</p>
+                  <p>3. 오탐 방지 튜닝: 정상 네트워크 통신 대역을 화이트리스트로 분리하여 불필요한 알림 로그 80% 이상 경감.</p>
+                  <div class="sar-evidence-row">
+                    <span style="font-size: 12.5px; color: var(--color-text-subtle);">공개 가능한 검증 산출물:</span>
+                    <button type="button" class="sar-evidence-link open-evidence-modal-btn" data-evidence-key="evidence1" aria-haspopup="dialog">
+                      <span>Snort/Suricata 룰셋 보고서 요약 보기 (모달)</span>
+                      <span aria-hidden="true">↗</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- S-A-R 2 -->
+            <article class="sar-card" id="card-sar-2">
+              <div class="sar-card-header">
+                <div class="sar-num-tag">
+                  <span class="sar-num">02</span>
+                  <h3 class="sar-title">GNS3 가상 토폴로지 구축 및 Cisco ASAv 방화벽 망 분리</h3>
+                </div>
+                <span class="sar-category-badge">네트워크 가상화 &amp; 방화벽 ACL</span>
+              </div>
+
+              <div class="sar-grid">
+                <div class="sar-col situation">
+                  <h4 class="sar-col-title">상황 (Situation)</h4>
+                  <p class="sar-col-text">
+                    내부 업무망(Inside)과 외부 웹망(DMZ), 인터넷 경계 구간에서 비인가 패킷 통과 및 라우터 단일 장애점(SPOF)으로 인한 서비스 중단 위험 발생.
+                  </p>
+                </div>
+                <div class="sar-col action">
+                  <h4 class="sar-col-title">행동 (Action)</h4>
+                  <p class="sar-col-text">
+                    GNS3 환경에서 라우터 이중화(Active-Standby)를 구성하고 Cisco ASAv 가상 방화벽을 연동하여 인터페이스별 보안 레벨(Inside 100, DMZ 50)과 ACL 패킷 필터링 정책을 적용함.
+                  </p>
+                </div>
+                <div class="sar-col result">
+                  <h4 class="sar-col-title">결과 (Result)</h4>
+                  <p class="sar-col-text">
+                    내부망에서 DMZ 구간으로의 허용 프로토콜(HTTP, Telnet) 통신 성공 및 비인가 트래픽 100% 차단 검증 완료, 장애 발생 시 1초 내 Standby 라우터 절체 확인.
+                  </p>
+                </div>
+              </div>
+
+              <div class="sar-interactive-area">
+                <button type="button" class="sar-toggle-btn" aria-expanded="false" aria-controls="sar-detail-2">
+                  <span class="sar-toggle-text">세부 분석 과정 펼치기</span>
+                  <span class="sar-toggle-icon" aria-hidden="true">▼</span>
+                </button>
+
+                <div id="sar-detail-2" class="sar-detail-content">
+                  <p class="sar-detail-subheading">[토폴로지 아키텍처 및 ACL 세부 설정]</p>
+                  <p>1. 토폴로지 구성: R3(Standby), R4(Active) 라우터 HSRP 기반 이중화 및 ASAv 방화벽 직렬 배치.</p>
+                  <p>2. 접근 통제(ACL) 구현: DMZ 웹서버 접근 시 80(HTTP), 23(Telnet) 포트만 선별 허용하고, 내부망으로의 역방향 비인가 요청 원천 차단(Deny Any Any).</p>
+                  <p>3. 패킷 도달성 검증: Webterm 및 Firefox 노드를 통한 단계별 Ping/HTTP 트래픽 테스트 및 차단 로그 수집 완료.</p>
+                  <div class="sar-evidence-row">
+                    <span style="font-size: 12.5px; color: var(--color-text-subtle);">공개 가능한 검증 산출물:</span>
+                    <button type="button" class="sar-evidence-link open-evidence-modal-btn" data-evidence-key="evidence2" aria-haspopup="dialog">
+                      <span>방화벽 망 분리 아키텍처 명세서 보기 (모달)</span>
+                      <span aria-hidden="true">↗</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- S-A-R 3 -->
+            <article class="sar-card" id="card-sar-3">
+              <div class="sar-card-header">
+                <div class="sar-num-tag">
+                  <span class="sar-num">03</span>
+                  <h3 class="sar-title">OSSEC(HIDS) 및 Zabbix 기반 호스트 관제 체계 구축</h3>
+                </div>
+                <span class="sar-category-badge">호스트 침입 탐지 &amp; 시스템 모니터링</span>
+              </div>
+
+              <div class="sar-grid">
+                <div class="sar-col situation">
+                  <h4 class="sar-col-title">상황 (Situation)</h4>
+                  <p class="sar-col-text">
+                    이기종 엔드포인트(Windows, Linux) 환경에서 시스템 파일 무단 변조, 비인가 로그인 시도 및 자원 과부하를 중앙에서 통합 모니터링할 방안 필요.
+                  </p>
+                </div>
+                <div class="sar-col action">
+                  <h4 class="sar-col-title">행동 (Action)</h4>
+                  <p class="sar-col-text">
+                    Ubuntu 서버에 OSSEC HIDS 서버를 구축하고 Windows 및 Rocky Linux 노드에 Agent를 연동하여 무결성 점검을 활성화했으며, Rocky 기반 Zabbix 관제 서버를 연계함.
+                  </p>
+                </div>
+                <div class="sar-col result">
+                  <h4 class="sar-col-title">결과 (Result)</h4>
+                  <p class="sar-col-text">
+                    시스템 파일 변경 및 비인가 접근 로그가 중앙 관제 서버에 실시간 기록·경보되는 통합 관제 파이프라인을 완성하고, 엔드포인트 가용성 모니터링 체계 확립.
+                  </p>
+                </div>
+              </div>
+
+              <div class="sar-interactive-area">
+                <button type="button" class="sar-toggle-btn" aria-expanded="false" aria-controls="sar-detail-3">
+                  <span class="sar-toggle-text">세부 분석 과정 펼치기</span>
+                  <span class="sar-toggle-icon" aria-hidden="true">▼</span>
+                </button>
+
+                <div id="sar-detail-3" class="sar-detail-content">
+                  <p class="sar-detail-subheading">[관제 시스템 연동 세부 구성]</p>
+                  <p>1. OSSEC HIDS 에이전트 키 발급 및 보안 통신: `manage_agents` 유틸리티를 통한 고유 식별 키 생성 및 전송 구간 암호화 연동.</p>
+                  <p>2. Syscheck 무결성 감시: 주요 시스템 파일(`/etc/passwd`, `/etc/shadow`, 시스템 드라이브) 대상 해시 주기적 비교 감시.</p>
+                  <p>3. Zabbix Server 연계: 에이전트 리소스 지표(CPU, 메모리, 네트워크 트래픽) 수집 템플릿 적용 및 임계치 경보 트리거 설정.</p>
+                  <div class="sar-evidence-row">
+                    <span style="font-size: 12.5px; color: var(--color-text-subtle);">공개 가능한 검증 산출물:</span>
+                    <button type="button" class="sar-evidence-link open-evidence-modal-btn" data-evidence-key="evidence3" aria-haspopup="dialog">
+                      <span>HIDS &amp; Zabbix 관제 명세서 보기 (모달)</span>
+                      <span aria-hidden="true">↗</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Skills Section -->
+    <section id="skills" class="section">
+      <div class="container section-grid">
+        <div class="grid-left">
+          <span class="section-tag">04 — Skills</span>
+        </div>
+        <div class="grid-right">
+          <h2 class="section-heading">기술 스택</h2>
+          <div class="red-line"></div>
+          <p class="body-text" style="margin-bottom: 2rem;">
+            침입 탐지, 네트워크 보안, 시큐어 코딩 및 시스템·인프라 운용을 위해 보유하고 지속적으로 연마 중인 기술 역량입니다.
+          </p>
+
+          <div class="skills-box-grid">
+            <div class="skill-category-card">
+              <h3 class="category-title">Security &amp; Analysis</h3>
+              <ul class="skill-list">
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>Snort &amp; Suricata 룰 작성</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>OSSEC HIDS 호스트 침입 탐지</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>Cisco ASAv 방화벽 &amp; ACL 설정</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>네트워크 패킷 분석 (Wireshark)</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>OWASP Top 10 취약점 분석</li>
+              </ul>
+            </div>
+
+            <div class="skill-category-card">
+              <h3 class="category-title">Development &amp; Scripting</h3>
+              <ul class="skill-list">
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>Python 보안 자동화 스크립트</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>C 프로그래밍 기초</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>HTML5 / CSS3 / JavaScript</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>Bash 쉘 스크립팅</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>SQL 쿼리 &amp; 파라미터화 검증</li>
+              </ul>
+            </div>
+
+            <div class="skill-category-card">
+              <h3 class="category-title">System &amp; Infra</h3>
+              <ul class="skill-list">
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>GNS3 가상 네트워크 에뮬레이션</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>Linux (Ubuntu / Rocky Linux)</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>Zabbix 인프라 모니터링</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>pfSense OpenVPN 원격 보안</li>
+                <li class="skill-item"><span class="skill-bullet" aria-hidden="true"></span>Git 형상 관리 &amp; 감사</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Contact Section -->
+    <section id="contact" class="section">
+      <div class="container section-grid">
+        <div class="grid-left">
+          <span class="section-tag">05 — Contact</span>
+        </div>
+        <div class="grid-right">
+          <h2 class="section-heading">연락처 및 소통</h2>
+          <div class="red-line"></div>
+          <p class="contact-desc">
+            취약점을 사전에 방어하고 견고한 신뢰 시스템을 구축하는 정보보안 실무자로서 기여하고자 합니다. 채용, 프로젝트 협업, 기술 문의 등 언제든 편하게 연락 주시기 바랍니다.
+          </p>
+          <div class="contact-email-wrapper">
+            <a href="mailto:wonq1029@gmail.com" class="contact-email" aria-label="이메일 보내기: wonq1029@gmail.com">
+              <span class="email-text">wonq1029@gmail.com</span>
+              <span class="arrow-icon" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="contact-links">
+            <span class="contact-badge-link">보안관제 / 침해사고대응(CERT)</span>
+            <span class="contact-badge-link">정보보호 엔지니어 직무 지원</span>
+            <span class="contact-badge-link">대구광역시 / 원격 근무 가능</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <span class="footer-text">© 2026 이혜원 (Lee Hye-won). All rights reserved.</span>
+      <span class="footer-text">Security Portfolio — No Secrets, Privacy Protected</span>
+    </div>
+  </footer>
+
+  <!-- Evidence Lightbox Modal (Accessible Dialog) -->
+  <div id="evidence-modal" class="evidence-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-evidence-title" aria-describedby="modal-evidence-desc">
+    <div id="modal-backdrop" class="modal-backdrop"></div>
+    <div class="modal-dialog-box">
+      <div class="modal-header">
+        <h3 id="modal-evidence-title" class="modal-title">검증 보고서 상세</h3>
+        <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="팝업 닫기">×</button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-evidence-desc"></p>
+        <pre id="modal-evidence-code" class="modal-evidence-codeblock"></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="document.getElementById('modal-close-btn').click();" class="motion-toggle-btn">확인 및 닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
