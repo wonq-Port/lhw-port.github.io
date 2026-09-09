@@ -1,26 +1,32 @@
 /**
  * Portfolio Interactive Scripts
- * Pure Vanilla JavaScript with zero console errors & full keyboard/mouse accessibility
+ * Pure Vanilla JavaScript (No Framework Dependency)
+ * Full Keyboard & Mouse Accessibility & Zero Console Errors
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const scrollProgress = document.getElementById('scroll-progress');
   const navLinks = document.querySelectorAll('.nav-link');
+  const logoBtn = document.getElementById('logo-btn');
   const motionToggleBtn = document.getElementById('motion-toggle-btn');
-  const modal = document.getElementById('evidence-modal');
-  const modalTitle = document.getElementById('modal-evidence-title');
-  const modalDesc = document.getElementById('modal-evidence-desc');
-  const modalCode = document.getElementById('modal-evidence-code');
-  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const sections = ['hero', 'about', 'scope', 'work', 'skills', 'contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  const modal = document.getElementById('image-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalCode = document.getElementById('modal-code');
+  const modalClose = document.getElementById('modal-close');
   const modalBackdrop = document.getElementById('modal-backdrop');
   let lastActiveElement = null;
 
-  // 1. Scroll Progress & Navbar Effect
+  // 1. Scroll Progress & Navbar Style on Scroll
   const handleScroll = () => {
     const scrollY = window.scrollY;
     if (navbar) {
-      if (scrollY > 30) {
+      if (scrollY > 48) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
@@ -38,16 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScroll();
 
   // 2. Active Section Spy
-  const sectionIds = ['overview', 'scope', 'about', 'activities', 'skills', 'contact'];
-  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-
   if ('IntersectionObserver' in window && sections.length > 0) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const currentId = entry.target.id;
           navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${currentId}`) {
+            if (link.dataset.section === currentId || link.getAttribute('href') === `#${currentId}`) {
               link.classList.add('active');
             } else {
               link.classList.remove('active');
@@ -55,23 +58,44 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       });
-    }, { root: null, rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+    }, { root: null, rootMargin: '-30% 0px -50% 0px', threshold: 0 });
 
     sections.forEach(section => observer.observe(section));
   }
 
-  // 3. Motion Reduction Toggle
+  // 3. Smooth Scroll Navigation
+  if (logoBtn) {
+    logoBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        targetEl.setAttribute('tabindex', '-1');
+        targetEl.focus({ preventScroll: true });
+      }
+    });
+  });
+
+  // 4. Motion Reduction Toggle
   if (motionToggleBtn) {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const applyMotionSetting = (shouldReduce) => {
       if (shouldReduce) {
         document.body.classList.add('reduce-motion');
         motionToggleBtn.setAttribute('aria-pressed', 'true');
-        motionToggleBtn.innerHTML = '<span aria-hidden="true">⚡</span> 모션 줄이기: ON';
+        motionToggleBtn.textContent = '모션 줄이기: ON';
       } else {
         document.body.classList.remove('reduce-motion');
         motionToggleBtn.setAttribute('aria-pressed', 'false');
-        motionToggleBtn.innerHTML = '<span aria-hidden="true">⚡</span> 모션 줄이기: OFF';
+        motionToggleBtn.textContent = '모션 줄이기: OFF';
       }
     };
 
@@ -85,29 +109,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. S-A-R Accordion Interactive Toggle (Mouse & Keyboard Enter/Space)
-  const toggleButtons = document.querySelectorAll('.sar-toggle-btn');
-  toggleButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetId = button.getAttribute('aria-controls');
-      const targetContent = document.getElementById(targetId);
-      if (!targetContent) return;
+  // 5. Project Accordion Expand/Collapse (Mouse & Keyboard Enter/Space)
+  const projectItems = document.querySelectorAll('.project-item');
+  projectItems.forEach(item => {
+    const toggleBtn = item.querySelector('.project-toggle-btn');
+    const toggleText = item.querySelector('.toggle-text');
+    const arrow = item.querySelector('.project-toggle-btn .arrow-icon');
 
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      const newExpandedState = !isExpanded;
+    const toggleProject = (e) => {
+      if (e.target.closest('.evidence-modal-trigger')) return;
 
-      button.setAttribute('aria-expanded', String(newExpandedState));
-      if (newExpandedState) {
-        targetContent.classList.add('is-expanded');
-        button.querySelector('.sar-toggle-text').textContent = '세부 분석 과정 닫기';
-      } else {
-        targetContent.classList.remove('is-expanded');
-        button.querySelector('.sar-toggle-text').textContent = '세부 분석 과정 펼치기';
+      const isExpanded = item.classList.contains('is-expanded');
+      item.classList.toggle('is-expanded');
+      item.setAttribute('aria-expanded', String(!isExpanded));
+
+      if (toggleText) {
+        toggleText.textContent = !isExpanded ? '세부 분석 과정 닫기' : '세부 분석 과정 펼치기';
+      }
+      if (arrow) {
+        arrow.textContent = !isExpanded ? '↑' : '↓';
+      }
+    };
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleProject(e);
+      });
+    }
+
+    item.addEventListener('click', toggleProject);
+
+    item.addEventListener('keydown', (e) => {
+      if (e.target === item && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        toggleProject(e);
       }
     });
   });
 
-  // 5. Accessible Evidence Modal Dialog
+  // 6. Evidence Lightbox Modal Interaction
   const evidenceData = {
     evidence1: {
       title: "Snort & Suricata 기반 침입 탐지(IDS) 룰셋 및 탐지 검증 보고서",
@@ -136,16 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalDesc) modalDesc.textContent = data.desc;
     if (modalCode) modalCode.textContent = data.code;
 
-    modal.classList.add('is-open');
+    modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
-    if (modalCloseBtn) modalCloseBtn.focus();
+    if (modalClose) modalClose.focus();
   };
 
   const closeModal = () => {
     if (!modal) return;
-    modal.classList.remove('is-open');
+    modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
 
@@ -154,34 +195,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const modalTriggerButtons = document.querySelectorAll('.open-evidence-modal-btn');
-  modalTriggerButtons.forEach(btn => {
+  document.querySelectorAll('.open-evidence-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetKey = btn.getAttribute('data-evidence-key');
-      openModal(targetKey);
+      e.stopPropagation();
+      const key = btn.dataset.evidence;
+      openModal(key);
     });
   });
 
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+  if (modalClose) modalClose.addEventListener('click', closeModal);
   if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
       closeModal();
     }
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href').slice(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        targetElement.setAttribute('tabindex', '-1');
-        targetElement.focus({ preventScroll: true });
-      }
-    });
   });
 });
