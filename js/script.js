@@ -216,4 +216,230 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
+
+  // 7. Easter Egg: Cyber Defense Tic-Tac-Toe Minigame
+  const gameTriggerBtn = document.getElementById('game-trigger-btn');
+  const gameModal = document.getElementById('game-modal');
+  const gameCloseBtn = document.getElementById('game-close-btn');
+  const gameBackdrop = document.getElementById('game-backdrop');
+  const gameCells = document.querySelectorAll('.game-cell');
+  const gameStatus = document.getElementById('game-status');
+  const gameResetBtn = document.getElementById('game-reset-btn');
+  const scoreWinsEl = document.getElementById('score-wins');
+  const scoreDrawsEl = document.getElementById('score-draws');
+  const scoreLossesEl = document.getElementById('score-losses');
+
+  let boardState = Array(9).fill(null);
+  let isGameOver = false;
+  let isAiThinking = false;
+  let scores = { wins: 0, draws: 0, losses: 0 };
+
+  const winningLines = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
+  ];
+
+  const checkWinner = (state) => {
+    for (let line of winningLines) {
+      const [a, b, c] = line;
+      if (state[a] && state[a] === state[b] && state[a] === state[c]) {
+        return { winner: state[a], line };
+      }
+    }
+    if (state.every(cell => cell !== null)) {
+      return { winner: 'draw', line: null };
+    }
+    return null;
+  };
+
+  const updateScores = () => {
+    if (scoreWinsEl) scoreWinsEl.textContent = scores.wins;
+    if (scoreDrawsEl) scoreDrawsEl.textContent = scores.draws;
+    if (scoreLossesEl) scoreLossesEl.textContent = scores.losses;
+  };
+
+  const renderBoard = () => {
+    gameCells.forEach((cell, idx) => {
+      const val = boardState[idx];
+      cell.textContent = val || '';
+      cell.classList.remove('cell-o', 'cell-x', 'winning-cell');
+      if (val === 'O') cell.classList.add('cell-o');
+      if (val === 'X') cell.classList.add('cell-x');
+      cell.disabled = val !== null || isGameOver || isAiThinking;
+    });
+  };
+
+  const resetGame = () => {
+    boardState = Array(9).fill(null);
+    isGameOver = false;
+    isAiThinking = false;
+    if (gameStatus) {
+      gameStatus.textContent = '당신의 턴입니다 (🛡️ O). 노드를 선택하세요.';
+      gameStatus.style.color = 'var(--color-text-main)';
+    }
+    renderBoard();
+  };
+
+  const handleGameEnd = (result) => {
+    isGameOver = true;
+    renderBoard();
+
+    if (result.winner === 'O') {
+      scores.wins++;
+      if (gameStatus) {
+        gameStatus.textContent = '방어 성공! 공격 라인을 완벽히 차단했습니다.';
+        gameStatus.style.color = '#15803d';
+      }
+      if (result.line) {
+        result.line.forEach(i => gameCells[i].classList.add('winning-cell'));
+      }
+    } else if (result.winner === 'X') {
+      scores.losses++;
+      if (gameStatus) {
+        gameStatus.textContent = '침해 발생! AI 침입자가 방어선을 돌파했습니다.';
+        gameStatus.style.color = 'var(--color-accent-red)';
+      }
+      if (result.line) {
+        result.line.forEach(i => gameCells[i].classList.add('winning-cell'));
+      }
+    } else {
+      scores.draws++;
+      if (gameStatus) {
+        gameStatus.textContent = '방어전 무승부! 시스템 상태가 유지되었습니다.';
+        gameStatus.style.color = 'var(--color-text-secondary)';
+      }
+    }
+    updateScores();
+  };
+
+  const makeAiMove = () => {
+    if (isGameOver) return;
+    isAiThinking = true;
+    if (gameStatus) {
+      gameStatus.textContent = 'AI 침입자가 취약점 경로를 스캔 중입니다... (⚔️ X)';
+      gameStatus.style.color = 'var(--color-text-subtle)';
+    }
+    renderBoard();
+
+    setTimeout(() => {
+      // 1. AI winning move
+      for (let i = 0; i < 9; i++) {
+        if (!boardState[i]) {
+          boardState[i] = 'X';
+          if (checkWinner(boardState)?.winner === 'X') {
+            isAiThinking = false;
+            handleGameEnd({ winner: 'X', line: checkWinner(boardState).line });
+            return;
+          }
+          boardState[i] = null;
+        }
+      }
+
+      // 2. Block Player move
+      for (let i = 0; i < 9; i++) {
+        if (!boardState[i]) {
+          boardState[i] = 'O';
+          if (checkWinner(boardState)?.winner === 'O') {
+            boardState[i] = 'X';
+            isAiThinking = false;
+            const res = checkWinner(boardState);
+            if (res) {
+              handleGameEnd(res);
+            } else {
+              if (gameStatus) {
+                gameStatus.textContent = '당신의 턴입니다 (🛡️ O). 노드를 선택하세요.';
+                gameStatus.style.color = 'var(--color-text-main)';
+              }
+              renderBoard();
+            }
+            return;
+          }
+          boardState[i] = null;
+        }
+      }
+
+      // 3. Center or Random move
+      let bestMove = null;
+      if (!boardState[4] && Math.random() < 0.7) {
+        bestMove = 4;
+      } else {
+        const available = [];
+        boardState.forEach((val, idx) => {
+          if (!val) available.push(idx);
+        });
+        if (available.length > 0) {
+          bestMove = available[Math.floor(Math.random() * available.length)];
+        }
+      }
+
+      if (bestMove !== null) {
+        boardState[bestMove] = 'X';
+      }
+
+      isAiThinking = false;
+      const finalCheck = checkWinner(boardState);
+      if (finalCheck) {
+        handleGameEnd(finalCheck);
+      } else {
+        if (gameStatus) {
+          gameStatus.textContent = '당신의 턴입니다 (🛡️ O). 노드를 선택하세요.';
+          gameStatus.style.color = 'var(--color-text-main)';
+        }
+        renderBoard();
+      }
+    }, 450);
+  };
+
+  const handleCellClick = (idx) => {
+    if (boardState[idx] || isGameOver || isAiThinking) return;
+
+    boardState[idx] = 'O';
+    renderBoard();
+
+    const result = checkWinner(boardState);
+    if (result) {
+      handleGameEnd(result);
+    } else {
+      makeAiMove();
+    }
+  };
+
+  gameCells.forEach((cell, idx) => {
+    cell.addEventListener('click', () => handleCellClick(idx));
+  });
+
+  if (gameResetBtn) {
+    gameResetBtn.addEventListener('click', resetGame);
+  }
+
+  const openGameModal = () => {
+    if (!gameModal) return;
+    lastActiveElement = document.activeElement;
+    gameModal.classList.add('open');
+    gameModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    resetGame();
+    if (gameCloseBtn) gameCloseBtn.focus();
+  };
+
+  const closeGameModal = () => {
+    if (!gameModal) return;
+    gameModal.classList.remove('open');
+    gameModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+      lastActiveElement.focus();
+    }
+  };
+
+  if (gameTriggerBtn) gameTriggerBtn.addEventListener('click', openGameModal);
+  if (gameCloseBtn) gameCloseBtn.addEventListener('click', closeGameModal);
+  if (gameBackdrop) gameBackdrop.addEventListener('click', closeGameModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && gameModal && gameModal.classList.contains('open')) {
+      closeGameModal();
+    }
+  });
 });
