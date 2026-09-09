@@ -308,15 +308,21 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer with Subtle Easter Egg Minigame Trigger -->
   <footer class="footer">
     <div class="container footer-container">
-      <span class="footer-text">© 2026 이혜원 (Lee Hye-won)</span>
+      <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+        <span class="footer-text">© 2026 이혜원 (Lee Hye-won)</span>
+        <!-- Easter Egg Minigame Button -->
+        <button type="button" id="game-trigger-btn" class="easter-egg-btn" aria-label="사이버 방어 틱택토 미니게임 열기">
+          [DEFENSE_GAME.EXE]
+        </button>
+      </div>
       <span class="footer-text">Information Security Portfolio</span>
     </div>
   </footer>
 
-  <!-- Accessible Lightbox Modal -->
+  <!-- Accessible Lightbox Modal (Reports) -->
   <div id="image-modal" class="image-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
     <div class="modal-backdrop" id="modal-backdrop"></div>
     <div class="modal-content">
@@ -324,6 +330,57 @@
       <h3 id="modal-title" class="modal-caption">검증 산출물 명세</h3>
       <p id="modal-desc" class="modal-desc-text"></p>
       <pre id="modal-code" class="modal-code-block"></pre>
+    </div>
+  </div>
+
+  <!-- Easter Egg Minigame Modal (Cyber Defense Tic-Tac-Toe) -->
+  <div id="game-modal" class="game-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="game-modal-title">
+    <div class="modal-backdrop" id="game-backdrop"></div>
+    <div class="game-modal-content">
+      <div class="game-modal-header">
+        <div class="game-header-tag">
+          <span class="game-blink-dot" aria-hidden="true"></span>
+          <span class="game-tag-text">TERMINAL // MINIGAME</span>
+        </div>
+        <button type="button" id="game-close-btn" class="modal-close" aria-label="게임 닫기">&times;</button>
+      </div>
+      <h3 id="game-modal-title" class="game-title">CYBER DEFENSE : TIC-TAC-TOE</h3>
+      <p class="game-desc">
+        AI 침입자의 공격 라인을 방어선(🛡️ O)으로 차단하고 3개 노드를 먼저 연결하여 시스템을 수호하세요!
+      </p>
+
+      <div class="game-scoreboard">
+        <div class="score-box score-player">
+          <span class="score-label">방어 성공 (YOU)</span>
+          <span class="score-num" id="score-wins">0</span>
+        </div>
+        <div class="score-box score-draw">
+          <span class="score-label">무승부 (DRAW)</span>
+          <span class="score-num" id="score-draws">0</span>
+        </div>
+        <div class="score-box score-ai">
+          <span class="score-label">침해 발생 (AI)</span>
+          <span class="score-num" id="score-losses">0</span>
+        </div>
+      </div>
+
+      <div id="game-status" class="game-status" aria-live="polite">당신의 턴입니다 (🛡️ O). 노드를 선택하세요.</div>
+
+      <div class="game-board" id="game-board" role="grid" aria-label="3x3 사이버 방어 노드 격자판">
+        <button type="button" class="game-cell" data-index="0" aria-label="1행 1열 방어 노드"></button>
+        <button type="button" class="game-cell" data-index="1" aria-label="1행 2열 방어 노드"></button>
+        <button type="button" class="game-cell" data-index="2" aria-label="1행 3열 방어 노드"></button>
+        <button type="button" class="game-cell" data-index="3" aria-label="2행 1열 방어 노드"></button>
+        <button type="button" class="game-cell" data-index="4" aria-label="2행 2열 방어 노드"></button>
+        <button type="button" class="game-cell" data-index="5" aria-label="2행 3열 방어 노드"></button>
+        <button type="button" class="game-cell" data-index="6" aria-label="3행 1열 방어 노드"></button>
+        <button type="button" class="game-cell" data-index="7" aria-label="3행 2열 방어 노드"></button>
+        <button type="button" class="game-cell" data-index="8" aria-label="3행 3열 방어 노드"></button>
+      </div>
+
+      <div class="game-controls">
+        <button type="button" id="game-reset-btn" class="game-btn game-btn-reset">새 게임 시작</button>
+      </div>
     </div>
   </div>
 
